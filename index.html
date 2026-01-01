@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winsome Reid - Reflective Writer | Seeds of Hope</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #fdfbf7;
+        }
+        
+        /* Print styles to keep sections together */
+        @media print {
+            section, .header, nav {
+                page-break-inside: avoid;
+                page-break-after: always;
+            }
+            footer {
+                page-break-before: always;
+            }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px 60px;
+            text-align: center;
+        }
+        
+        .logo {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 25px;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
+        }
+        
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header .tagline {
+            font-size: 1.5em;
+            font-style: italic;
+            opacity: 0.95;
+        }
+        
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 15px;
+        }
+        
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: color 0.3s;
+            font-size: 1.05em;
+        }
+        
+        nav a:hover {
+            color: #e67e22;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .value-highlight {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .value-highlight h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .value-highlight p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        
+        .hero-text h2 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+        
+        .hero-text p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #34495e;
+        }
+        
+        .benefits-list {
+            background: #fff3e0;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 5px solid #e67e22;
+        }
+        
+        .benefits-list h3 {
+            color: #e67e22;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        
+        .benefits-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .benefits-list li {
+            padding: 10px 0;
+            font-size: 1.15em;
+            color: #2c3e50;
+        }
+        
+        .benefits-list li:before {
+            content: "✓ ";
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-right: 10px;
+        }
+        
+        section {
+            padding: 60px 0;
+            min-height: 400px;
+        }
+        
+        .section-title {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-top: 4px solid #27ae60;
+        }
+        
+        .service-card:nth-child(even) {
+            border-top-color: #e67e22;
+        }
+        
+        .service-card:nth-child(3n) {
+            border-top-color: #667eea;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .testimonials {
+            background: linear-gradient(135deg, #e8f5e9 0%, #fff9c4 100%);
+            padding: 60px 20px;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 4px solid #27ae60;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        
+        .testimonial:nth-child(even) {
+            border-left-color: #e67e22;
+        }
+        
+        .testimonial-author {
+            text-align: right;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .placeholder-box {
+            width: 100%;
+            height: 350px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        .placeholder-box h3 {
+            color: #555;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .placeholder-box p {
+            color: #555;
+            font-size: 1.1em;
+        }
+        
+        .pricing-box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 40px auto;
+            border-top: 5px solid #27ae60;
+        }
+        
+        .pricing-box h3 {
+            color: #27ae60;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        
+        .price-highlight {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .price-highlight .price {
+            font-size: 3em;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            margin: 0 auto 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .step:nth-child(2) .step-number {
+            background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+        }
+        
+        .step:nth-child(3) .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .step:nth-child(4) .step-number {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .contact-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .contact-section a {
+            color: white;
+            font-size: 1.5em;
+            text-decoration: none;
+            border: 2px solid white;
+            padding: 15px 40px;
+            display: inline-block;
+            margin-top: 20px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .contact-section a:hover {
+            background: white;
+            color: #2c3e50;
+        }
+        
+        footer {
+            background-color: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .logo {
+                width: 140px;
+                height: 140px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 80 Q30 70 40 70 L90 70 Q100 70 100 80 L100 150 Q100 160 90 160 L40 160 Q30 160 30 150 Z" 
+                  fill="#fff" stroke="#f0e6ff" stroke-width="4"/>
+            <path d="M170 80 Q170 70 160 70 L110 70 Q100 70 100 80 L100 150 Q100 160 110 160 L160 160 Q170 160 170 150 Z" 
+                  fill="#fff" stroke="#f0e6ff" stroke-width="4"/>
+            <line x1="100" y1="70" x2="100" y2="160" stroke="#f0e6ff" stroke-width="4"/>
+            <line x1="40" y1="90" x2="85" y2="90" stroke="#e6d7ff" stroke-width="3" opacity="0.8"/>
+            <line x1="40" y1="105" x2="85" y2="105" stroke="#e6d7ff" stroke-width="3" opacity="0.8"/>
+            <line x1="40" y1="120" x2="85" y2="120" stroke="#e6d7ff" stroke-width="3" opacity="0.8"/>
+            <line x1="115" y1="90" x2="160" y2="90" stroke="#e6d7ff" stroke-width="3" opacity="0.8"/>
+            <line x1="115" y1="105" x2="160" y2="105" stroke="#e6d7ff" stroke-width="3" opacity="0.8"/>
+            <line x1="115" y1="120" x2="160" y2="120" stroke="#e6d7ff" stroke-width="3" opacity="0.8"/>
+            <path d="M100 140 Q95 100 90 60 Q88 40 95 25" 
+                  stroke="#90EE90" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <ellipse cx="85" cy="70" rx="14" ry="22" fill="#98FB98" opacity="0.95" transform="rotate(-30 85 70)"/>
+            <ellipse cx="95" cy="50" rx="12" ry="20" fill="#98FB98" opacity="0.95" transform="rotate(20 95 50)"/>
+            <ellipse cx="88" cy="90" rx="12" ry="18" fill="#98FB98" opacity="0.95" transform="rotate(-40 88 90)"/>
+            <circle cx="95" cy="25" r="10" fill="#FFD700" opacity="1"/>
+            <circle cx="90" cy="20" r="6" fill="#FFF" opacity="0.95"/>
+            <circle cx="100" cy="20" r="6" fill="#FFF" opacity="0.95"/>
+            <circle cx="95" cy="15" r="6" fill="#FFF" opacity="0.95"/>
+            <circle cx="90" cy="28" r="6" fill="#FFF" opacity="0.95"/>
+            <circle cx="100" cy="28" r="6" fill="#FFF" opacity="0.95"/>
+        </svg>
+        
+        <h1>Winsome Reid</h1>
+        <p class="tagline">Seeds of Hope Reflective Writing Services</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section id="home">
+        <div class="container">
+            <div class="hero-section">
+                <div class="hero-text">
+                    <h2>Giving Voice to What Your Heart Wants to Say</h2>
+                    <p>When words feel impossible to find, when emotions run too deep to express, when a moment demands meaning you can't quite capture, I'm here to help.</p>
+                </div>
+                
+                <div class="value-highlight">
+                    <h3>The Value I Bring</h3>
+                    <p><strong>I transform your thoughts and feelings into powerful, meaningful words</strong> that truly express what's in your heart. You'll receive a beautifully crafted piece that brings clarity where there was confusion, comfort where there is pain, and celebrates love where words once failed you.</p>
+                </div>
+                
+                <div class="benefits-list">
+                    <h3>What You Gain When Working With Me:</h3>
+                    <ul>
+                        <li><strong>Peace of mind</strong> knowing your message will be expressed perfectly</li>
+                        <li><strong>Time saved</strong> from struggling to find the right words yourself</li>
+                        <li><strong>Emotional clarity</strong> as I help you understand and articulate what you truly feel</li>
+                        <li><strong>Professional quality</strong> writing that honors the importance of your moment</li>
+                        <li><strong>A lasting keepsake</strong> that captures memories and emotions beautifully</li>
+                        <li><strong>Confidence</strong> to share your message knowing it expresses exactly what you mean</li>
+                    </ul>
+                </div>
+                
+                <p style="font-size: 1.2em; text-align: center; color: #2c3e50; margin-top: 30px;">Whether it's a tribute, a bereavement eulogy, a birthday greeting, a wedding blessing, or any moment that matters, <strong>I give voice to what your soul wants to say but you don't know how.</strong></p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">What I Offer</h2>
+            <p style="text-align: center; font-size: 1.15em; max-width: 800px; margin: 0 auto 40px;">I provide custom reflective writing for life's meaningful moments. Each piece is written personally, thoughtfully and with emotional depth, so it truly reflects the heart behind the message and delivers real value for you.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Tributes & Eulogies</h3>
+                    <p>Honouring the memory of loved ones with words that capture their essence and bring comfort to those who grieve. You'll have a meaningful tribute that helps you and others process loss and celebrate a life lived.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Birthday Messages</h3>
+                    <p>Celebrating the special people in your life with heartfelt, personalised messages that show how much they mean to you. Give them words they'll treasure forever.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Wedding Blessings</h3>
+                    <p>Creating meaningful words for one of life's most beautiful moments, expressing hope, love and commitment in a way that makes the day even more memorable.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Newborn Dedications & Christenings</h3>
+                    <p>Welcoming new life with words that express the joy, hope and promise of a precious beginning. Create a keepsake the family will cherish for years.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Life Reflections & Personal Growth</h3>
+                    <p>Exploring self-worth, understanding and overcoming sabotaging relationships, gaining clarity on choosing the right partner, and understanding emotions and life's journey. Receive insights that help you move forward with confidence.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Identity & Understanding</h3>
+                    <p>Helping children and adults understand identity, such as explaining why their skin colour is unique and beautiful. Creating compassionate, affirming messages that build confidence and self-acceptance.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Father's Day & Mother's Day Tributes</h3>
+                    <p>Honouring the special parents in your life with heartfelt tributes that express gratitude, love and appreciation in ways that truly touch the heart.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Words of Encouragement</h3>
+                    <p>Lifting spirits and providing hope through carefully crafted messages that remind someone of their worth, strength and potential during challenging times.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Professional Resources</h3>
+                    <p>Developing professional written resources, such as training manuals on effective customer service and engagement, with clarity and practical insight.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What People Say</h2>
+            
+            <div class="testimonial">
+                "My dear Winsome, I truly appreciate your sincerest condolences and tribute to my late sister, Princess. Your words are comforting, encouraging, and hope kept alive. If soft and lovely words give life to the dead, permit me to say yours would have awakened my late sister. You are such an amazing woman of virtue, you are a wonder and a kind-hearted woman and an embodiment of love and care. My dear, I am very proud of you in many ways, and you have been a candle of hope to humanity. One thing I cherish about you is your love, truth and honesty."
+                <div class="testimonial-author">— M.O.</div>
+            </div>
+            
+            <div class="testimonial">
+                "Your words are comforting and hope alive any time you write me I feel this deep relief within my inner spirit. You are an exceptional friend that knows how to comfort someone in grief. Love you."
+                <div class="testimonial-author">— M.O.</div>
+            </div>
+            
+            <div class="testimonial">
+                "Those words are so powerful."
+                <div class="testimonial-author">— G.W.</div>
+            </div>
+            
+            <div class="testimonial">
+                "Absolutely beautiful. I am so touched, and you have a gift for writing."
+                <div class="testimonial-author">— W.H.</div>
+            </div>
+            
+            <div class="testimonial">
+                "I read all of it, and it brought tears to my eyes and emotions. I am glad I have someone who understands me."
+                <div class="testimonial-author">— P.P.</div>
+            </div>
+            
+            <div class="testimonial">
+                "Thank you so much for your gracious words of encouragement."
+                <div class="testimonial-author">— D.K.</div>
+            </div>
+            
+            <div class="testimonial">
+                "Hey Winsome, thank you so much for this message, it really does mean a lot to me. I am so glad to have a friend like you."
+                <div class="testimonial-author">— M.S.</div>
+            </div>
+            
+            <div class="testimonial">
+                "Winsome, you are a highly intelligent, intuitive person with great potential. This is amazing."
+                <div class="testimonial-author">— H.B.</div>
+            </div>
+            
+            <div class="testimonial">
+                "I read this and it brought tears to my eyes. This is so beautiful. Thank you."
+                <div class="testimonial-author">— W.L.</div>
+            </div>
+            
+            <div class="testimonial">
+                "Oh, your writing is just so beautiful. Thank you for sharing this with me. It is so heartfelt and deep. I love how you express yourself so honestly and beautifully."
+                <div class="testimonial-author">— M.A.</div>
+            </div>
+            
+            <div class="testimonial">
+                "Aww, sis, thank you very much. Your reflective style is unique. You listen with your heart."
+                <div class="testimonial-author">— J.O.</div>
+            </div>
+            
+            <div class="testimonial">
+                "Wow, you are so talented. It was very accurate. You listened and remembered everything I said. It made me feel understood. Well done."
+                <div class="testimonial-author">— M.T.</div>
+            </div>
+            
+            <div class="testimonial">
+                "Very powerful words, I will keep this forever."
+                <div class="testimonial-author">— J.R.</div>
+            </div>
+            
+            <div class="testimonial">
+                "Thank you for this beautifully crafted chronological of my baptism testimony of my life thus far. You have been so detailed and concise in my story. I am so grateful for this. I shall print it and cherish this keepsake."
+                <div class="testimonial-author">— A.R.</div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-section">
+                <div class="placeholder-box">
+                    <h3>Photo Space</h3>
+                    <p>Add your image here</p>
+                </div>
+                
+                <div>
+                    <p style="font-size: 1.1em; margin-bottom: 20px;">My name is Winsome Reid. I have loved writing since I was 12 years old, when I began writing uplifting messages to my stepmother while she was in the hospital having my baby brother. Growing up, I would often write notes to cheer people up and encourage them when they were feeling low. I loved "feeding life" into people with words.</p>
+                    
+                    <p style="font-size: 1.1em; margin-bottom: 20px;">Over the years, people have suggested that I write columns because of my passion for writing. Writing has always been my way of understanding people, emotions, and the moments that shape our lives. I have a natural gift for listening, sensing what someone is truly trying to say, and conveying those feelings in meaningful words.</p>
+                    
+                    <p style="font-size: 1.1em; margin-bottom: 20px;">People often come to me when they are overwhelmed, grieving, celebrating, or searching for the right message. I write from the heart, with clarity, compassion and emotional insight. <strong>The value I bring is turning your unspoken feelings into words that heal, honor, and inspire.</strong></p>
+                    
+                    <p style="font-size: 1.2em; font-style: italic; color: #667eea; margin-top: 30px;"><strong>Every person has a story; I help put it into words.</strong></p>
+                    
+                    <h3 style="color: #e67e22; margin-top: 40px; font-size: 1.6em;">My Mission</h3>
+                    <p style="font-size: 1.1em;">My mission is to touch as many hearts as I can through reflective writing, bringing clarity, comfort, insight and meaning to the moments that matter most.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="process" style="background-color: #f0f4f8;">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p style="text-align: center; font-size: 1.15em; margin-bottom: 40px; color: #2c3e50;">A simple, personal process that ensures you get exactly what you need</p>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Contact Me</h3>
+                    <p>Reach out by email with details about what you need written and who it's for. I'll respond promptly to arrange our conversation.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Conversation</h3>
+                    <p>We meet by phone or WhatsApp video (up to 45 minutes). I listen deeply and make sure I fully understand your needs and what you want to express.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>I Write</h3>
+                    <p>I carefully craft your piece with sensitivity, clarity, and emotional depth until it feels right. This is where the magic happens.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>You Receive</h3>
+                    <p>I send your completed piece by email, usually within 24 to 48 hours. You'll have beautiful words that express exactly what your heart wanted to say.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="pricing">
+        <div class="container">
+            <h2 class="section-title">Pricing</h2>
+            <div class="pricing-box">
+                <h3>Simple & Transparent</h3>
+                
+                <div class="price-highlight">
+                    <div style="font-size: 1.2em; color: #2c3e50; margin-bottom: 10px;">Starting from</div>
+                    <div class="price">£50</div>
+                </div>
+                
+                <p style="font-size: 1.15em; margin-bottom: 20px;">For simple, shorter pieces such as:</p>
+                <ul style="margin-left: 20px; margin-bottom: 25px;">
+                    <li>Birthday tributes</li>
+                    <li>Mother's Day / Father's Day messages</li>
+                    <li>Baby christening dedications</li>
+                    <li>Short tributes</li>
+                </ul>
+                <p style="font-size: 1.1em; margin-bottom: 20px;">Longer or more detailed pieces will cost more, and I'm happy to agree on a price that feels fair for both of us before I begin.</p>
+                <p style="font-size: 1.05em; font-style: italic; background: #f0f4f8; padding: 15px; border-radius: 5px;">Payment is made before I begin writing, after we have had our conversation and agreed on the fee.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact-section">
+        <h2>Let's Bring Your Words to Life</h2>
+        <p style="font-size: 1.2em; margin-bottom: 10px;">Whether you're celebrating, reflecting or seeking healing,</p>
+        <p style="font-size: 1.2em; margin-bottom: 30px;">I'm here to help you express what your heart wants to say.</p>
+        <a href="mailto:winsomerd1@gmail.com">winsomerd1@gmail.com</a>
+        <p style="margin-top: 30px; font-size: 1.05em;">Please include what the message is for and who it is for when you contact me.</p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Seeds of Hope Reflective Writing Services | Winsome Reid</p>
+        <p style="margin-top: 10px;">Touching hearts through meaningful words</p>
+    </footer>
+</body>
+</html>
